@@ -1,9 +1,13 @@
-import Hero from "./Components/Hero/Hero"
+import Header from "./Components/Header/Header"
+import Start from "./Components/Start/Start"
 
 function App() {
   return (
-    <div className="text-blue-400 text-4xl font-bold">
-      <Hero />
+    <div className="h-screen overflow-y-hidden bg-grayish">
+      <div className="wrapper">
+        <Header />
+        <Start />
+      </div>
     </div>
   )
 }
