@@ -2,13 +2,15 @@ import Field from "../Field/Field"
 
 import data from "../../data/data.json"
 import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { start } from "../../Slices/QuizzSlice"
 
 const Chosetopic = () => {
-  const [topic, setTopic] = useState("")
+  const dispatch = useDispatch()
   const topics = data.quizzes
 
-  function selectTopic(topicName: string) {
-    setTopic(topicName)
+  function startQuizz(topicName: string) {
+    dispatch(start(topicName))
   }
 
   return (
@@ -18,7 +20,7 @@ const Chosetopic = () => {
           icon={topic.icon}
           text={topic.title}
           key={topic.title}
-          onStart={selectTopic}
+          onStart={startQuizz}
         />
       ))}
     </div>
