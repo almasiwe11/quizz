@@ -5,6 +5,8 @@ import data from "../data/data.json"
 const initialState: initialState = {
   status: "selection",
   questions: [],
+  currentQuestion: 0,
+  score: 0,
   topic: "",
 }
 
@@ -23,9 +25,31 @@ const quizzSlice = createSlice({
         questions: qs,
       }
     },
+
+    rightAnswer(state) {
+      return {
+        ...state,
+        score: state.score + 1,
+        currentQuestion: state.currentQuestion + 1,
+      }
+    },
+
+    wrongAnswer(state) {
+      return {
+        ...state,
+        currentQuestion: state.currentQuestion + 1,
+      }
+    },
+
+    endQuizz(state) {
+      return {
+        ...state,
+        status: "finished",
+      }
+    },
   },
 })
 
-export const { start } = quizzSlice.actions
+export const { start, rightAnswer, wrongAnswer, endQuizz } = quizzSlice.actions
 
 export default quizzSlice.reducer

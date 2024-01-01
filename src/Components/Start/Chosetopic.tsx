@@ -1,7 +1,6 @@
 import Field from "../Field/Field"
 
 import data from "../../data/data.json"
-import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { start } from "../../Slices/QuizzSlice"
 

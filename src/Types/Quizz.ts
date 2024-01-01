@@ -2,6 +2,8 @@ type initialState = {
   status: "selection" | "playing" | "finished"
   questions: Question[]
   topic: string
+  score: number
+  currentQuestion: number
 }
 
 type Question = {
