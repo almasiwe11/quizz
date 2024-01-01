@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { initialState } from "../Types/Quizz"
 
-const initialState = {
-  status: "Selection",
+const initialState: initialState = {
+  status: "selection",
 }
 
 const quizzSlice = createSlice({

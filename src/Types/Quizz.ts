@@ -1,5 +1,5 @@
 type initialState = {
-  status: string
+  status: "selection" | "playing" | "finished"
 }
 
 export type { initialState }
