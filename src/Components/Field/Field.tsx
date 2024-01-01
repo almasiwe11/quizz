@@ -1,12 +1,12 @@
 type Props = {
-  Icon?: React.FC
+  icon?: string
   text: string
 }
 
-const Field = ({ Icon, text }: Props) => {
+const Field = ({ icon, text }: Props) => {
   return (
     <div className="bg-white rounded-xl cursor-pointer p-2.5 shadow-sm flex gap-4 items-center">
-      {Icon && <Icon />}
+      {icon && <img src={icon} />}
       {text}
     </div>
   )

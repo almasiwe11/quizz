@@ -1,16 +1,14 @@
 import Field from "../Field/Field"
-import Html from "../../Icons/Html"
-import Css from "../../Icons/Css"
-import Js from "../../Icons/Js"
-import Accessibility from "../../Icons/Accessibility"
+
+import data from "../../data/data.json"
 
 const Chosetopic = () => {
+  const topics = data.quizzes
   return (
     <div className="flex flex-col gap-5">
-      <Field Icon={Html} text="HTML" />
-      <Field Icon={Css} text="CSS" />
-      <Field Icon={Js} text="Javscript" />
-      <Field Icon={Accessibility} text="Accessiblity" />
+      {topics.map((topic) => (
+        <Field icon={topic.icon} text={topic.title} key={topic.title} />
+      ))}
     </div>
   )
 }
