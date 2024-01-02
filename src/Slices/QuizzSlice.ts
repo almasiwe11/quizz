@@ -58,8 +58,16 @@ const quizzSlice = createSlice({
       }
     },
 
-    playAgain() {
-      return initialState
+    playAgain(state) {
+      return {
+        ...state,
+        status: "selection",
+        questions: [],
+        currentQuestion: 0,
+        score: 0,
+        topic: "",
+        answSelected: false,
+      }
     },
 
     toggleMode(state) {

@@ -4,17 +4,27 @@ import { RootState } from "../../Rootstate"
 import { playAgain } from "../../Slices/QuizzSlice"
 
 const Final = () => {
-  const { score, questions } = useSelector((state: RootState) => state.quizz)
+  const { score, questions, darkMode } = useSelector(
+    (state: RootState) => state.quizz
+  )
   const dispatch = useDispatch()
   return (
     <div className="layout">
-      <div className="text-5xl font-semibold">
+      <div
+        className={`text-5xl font-semibold ${
+          darkMode ? "text-grayish" : "text-gray-dark"
+        }`}
+      >
         <span>Quiz completed</span>
         <br />
         <span className="font-bold">You scored...</span>
       </div>
       <div>
-        <div className="bg-white rounded-xl p-12">
+        <div
+          className={`${darkMode ? "bg-gray-mid" : "bg-white"} ${
+            darkMode ? "text-grayish" : "text-gray-dark"
+          } rounded-xl p-12`}
+        >
           <div className="flex flex-col items-center gap-6">
             <Topic />
             <p className="text-6xl font-bold ">{score}</p>
