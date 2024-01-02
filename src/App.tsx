@@ -9,7 +9,7 @@ function App() {
   const { status, darkMode } = useSelector((state: RootState) => state.quizz)
   return (
     <div
-      className={`h-screen overflow-y-hidden ${
+      className={`min-h-screen overflow-y-hidden ${
         darkMode
           ? "mobile-dark md:tablet-dark lg:bg-desktop-dark bg-gray-dark"
           : "bg-grayish"
