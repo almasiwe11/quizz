@@ -3,6 +3,7 @@ import { RootState } from "../../Rootstate"
 import Field from "../Field/Field"
 import { endQuizz, nextQuestion } from "../../Slices/QuizzSlice"
 import { useState } from "react"
+import Progress from "./Progress"
 
 const Questions = () => {
   const { questions, currentQuestion, answSelected } = useSelector(
@@ -34,6 +35,7 @@ const Questions = () => {
         <h1 className="font-bold text-2xl max-w-sm select-none">
           {thisQuestion.question}
         </h1>
+        <Progress />
       </div>
 
       <div className="flex flex-col gap-4">
