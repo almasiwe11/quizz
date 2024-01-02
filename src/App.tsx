@@ -6,9 +6,15 @@ import Questions from "./Components/Questions/Questions"
 import Final from "./Components/Final/Final"
 
 function App() {
-  const { status } = useSelector((state: RootState) => state.quizz)
+  const { status, darkMode } = useSelector((state: RootState) => state.quizz)
   return (
-    <div className="h-screen overflow-y-hidden bg-grayish">
+    <div
+      className={`h-screen overflow-y-hidden ${
+        darkMode
+          ? "mobile-dark md:tablet-dark lg:bg-desktop-dark bg-gray-dark"
+          : "bg-grayish"
+      } bg-cover bg-no-repeat`}
+    >
       <div className="wrapper">
         <Header />
         {status === "selection" && <Start />}

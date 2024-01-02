@@ -9,6 +9,7 @@ const initialState: initialState = {
   score: 0,
   topic: "",
   answSelected: false,
+  darkMode: false,
 }
 
 const quizzSlice = createSlice({
@@ -60,6 +61,10 @@ const quizzSlice = createSlice({
     playAgain() {
       return initialState
     },
+
+    toggleMode(state) {
+      state.darkMode = !state.darkMode
+    },
   },
 })
 
@@ -70,6 +75,7 @@ export const {
   endQuizz,
   nextQuestion,
   playAgain,
+  toggleMode,
 } = quizzSlice.actions
 
 export default quizzSlice.reducer

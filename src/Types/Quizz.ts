@@ -5,6 +5,7 @@ type initialState = {
   score: number
   currentQuestion: number
   answSelected: boolean
+  darkMode: boolean
 }
 
 type Question = {

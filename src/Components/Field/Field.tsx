@@ -15,7 +15,9 @@ type Props = {
 }
 
 const Field = ({ icon, text, onStart, index, correctAns }: Props) => {
-  const { answSelected } = useSelector((state: RootState) => state.quizz)
+  const { answSelected, darkMode } = useSelector(
+    (state: RootState) => state.quizz
+  )
   const dispatch = useDispatch()
 
   const [showAns, setShowAnsw] = useState("hidden")
@@ -41,7 +43,9 @@ const Field = ({ icon, text, onStart, index, correctAns }: Props) => {
   return (
     <div
       onClick={onChoose}
-      className={`bg-white group hover:border-pink border-2 border-transparent rounded-xl h-16  font-semibold p-2.5 shadow-sm flex gap-6  items-center ${
+      className={`${
+        darkMode ? "bg-gray-mid text-grayish" : "bg-white text-gray-dark"
+      } group hover:border-pink border-2 border-transparent rounded-xl h-16  font-semibold p-2.5 shadow-sm flex gap-6  items-center ${
         !answSelected ? "cursor-pointer" : "pointer-events-none"
       } ${showAns === "right" && "border-2 border-green"} ${
         showAns === "wrong" && "border-2 border-tomato"

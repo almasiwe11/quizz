@@ -15,6 +15,11 @@ export default {
         green: "#26D782",
         tomato: "#EE5454",
       },
+      backgroundImage: {
+        "desktop-dark": "url('/pattern-background-desktop-dark.svg')",
+        "tablet-dark": "url('/pattern-background-tablet-dark.svg')",
+        "mobil-dark": "url('/pattern-background-mobil-dark.svg')",
+      },
     },
     screens: {
       sm: "480px",

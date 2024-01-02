@@ -1,9 +1,13 @@
 import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { toggleMode } from "../../Slices/QuizzSlice"
 
 const Toggler = () => {
   const [on, isOn] = useState(false)
+  const dispatch = useDispatch()
 
   function onToggle() {
+    dispatch(toggleMode())
     isOn((prev) => !prev)
   }
 
