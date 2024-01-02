@@ -4,6 +4,7 @@ type initialState = {
   topic: string
   score: number
   currentQuestion: number
+  answSelected: boolean
 }
 
 type Question = {

@@ -8,6 +8,7 @@ const initialState: initialState = {
   currentQuestion: 0,
   score: 0,
   topic: "",
+  answSelected: false,
 }
 
 const quizzSlice = createSlice({
@@ -30,14 +31,14 @@ const quizzSlice = createSlice({
       return {
         ...state,
         score: state.score + 1,
-        currentQuestion: state.currentQuestion + 1,
+        answSelected: true,
       }
     },
 
     wrongAnswer(state) {
       return {
         ...state,
-        currentQuestion: state.currentQuestion + 1,
+        answSelected: true,
       }
     },
 
@@ -47,9 +48,18 @@ const quizzSlice = createSlice({
         status: "finished",
       }
     },
+
+    nextQuestion(state) {
+      return {
+        ...state,
+        currentQuestion: state.currentQuestion + 1,
+        answSelected: false,
+      }
+    },
   },
 })
 
-export const { start, rightAnswer, wrongAnswer, endQuizz } = quizzSlice.actions
+export const { start, rightAnswer, wrongAnswer, endQuizz, nextQuestion } =
+  quizzSlice.actions
 
 export default quizzSlice.reducer
