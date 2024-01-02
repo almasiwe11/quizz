@@ -41,13 +41,23 @@ const Field = ({ icon, text, onStart, index, correctAns }: Props) => {
   return (
     <div
       onClick={onChoose}
-      className={`bg-white rounded-xl h-16 cursor-pointer font-semibold p-2.5 shadow-sm flex gap-6 items-center ${
-        showAns === "right" && "border-2 border-green"
-      } ${showAns === "wrong" && "border-2 border-red-400"}`}
+      className={`bg-white group hover:border-pink border-2 border-transparent rounded-xl h-16  font-semibold p-2.5 shadow-sm flex gap-6  items-center ${
+        !answSelected ? "cursor-pointer" : "pointer-events-none"
+      } ${showAns === "right" && "border-2 border-green"} ${
+        showAns === "wrong" && "border-2 border-tomato"
+      }`}
     >
       {icon && <img src={icon} />}
       {typeof index === "number" && index >= 0 && (
-        <div className="bg-grayish p-2 px-3 rounded-lg text-gray-light">
+        <div
+          className={`bg-grayish ${
+            showAns === "right" && text === correctAns && "bg-green text-white"
+          } ${
+            showAns !== "hidden" &&
+            text !== correctAns &&
+            "bg-tomato text-white"
+          } group-hover:bg-pink group-hover:text-white p-2 px-3 rounded-lg text-gray-light`}
+        >
           {options[index]}
         </div>
       )}

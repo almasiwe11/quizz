@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../../Rootstate"
 import Field from "../Field/Field"
-import { nextQuestion } from "../../Slices/QuizzSlice"
+import { endQuizz, nextQuestion } from "../../Slices/QuizzSlice"
+import { useState } from "react"
 
 const Questions = () => {
   const { questions, currentQuestion, answSelected } = useSelector(
@@ -9,6 +10,20 @@ const Questions = () => {
   )
   const dispatch = useDispatch()
   const thisQuestion = questions[currentQuestion]
+  const [noAnswer, setNoAnswer] = useState(false)
+
+  function handleNextQuestion() {
+    if (!answSelected) {
+      setNoAnswer(true)
+      return
+    }
+    setNoAnswer(false)
+    if (currentQuestion < questions.length - 1) {
+      dispatch(nextQuestion())
+    } else {
+      dispatch(endQuizz())
+    }
+  }
 
   return (
     <div className="layout">
@@ -31,7 +46,7 @@ const Questions = () => {
           />
         ))}
         <button
-          onClick={() => dispatch(nextQuestion())}
+          onClick={handleNextQuestion}
           className="bg-pink duration-300 ease-in-out hover:bg-pink/60 text-white font-bold rounded-xl w-full p-3"
         >
           {!answSelected
@@ -40,6 +55,9 @@ const Questions = () => {
             ? "End Quizz"
             : "Next Question"}
         </button>
+        {noAnswer && !answSelected && (
+          <div className="text-tomato">Please selecet an answer</div>
+        )}
       </div>
     </div>
   )

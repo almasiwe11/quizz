@@ -56,10 +56,20 @@ const quizzSlice = createSlice({
         answSelected: false,
       }
     },
+
+    playAgain() {
+      return initialState
+    },
   },
 })
 
-export const { start, rightAnswer, wrongAnswer, endQuizz, nextQuestion } =
-  quizzSlice.actions
+export const {
+  start,
+  rightAnswer,
+  wrongAnswer,
+  endQuizz,
+  nextQuestion,
+  playAgain,
+} = quizzSlice.actions
 
 export default quizzSlice.reducer

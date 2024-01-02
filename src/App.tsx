@@ -3,6 +3,7 @@ import Header from "./Components/Header/Header"
 import Start from "./Components/Start/Start"
 import { RootState } from "./Rootstate"
 import Questions from "./Components/Questions/Questions"
+import Final from "./Components/Final/Final"
 
 function App() {
   const { status } = useSelector((state: RootState) => state.quizz)
@@ -12,6 +13,7 @@ function App() {
         <Header />
         {status === "selection" && <Start />}
         {status === "playing" && <Questions />}
+        {status === "finished" && <Final />}
       </div>
     </div>
   )
